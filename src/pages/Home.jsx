@@ -1,8 +1,11 @@
+import Banner from "../components/Home/Banner";
+import JoinTeacher from "../components/Home/JoinTeacher";
 
 const Home = () => {
     return (
         <div>
-            <h3></h3>
+            <Banner></Banner>
+            <JoinTeacher></JoinTeacher>
         </div>
     );
 };
