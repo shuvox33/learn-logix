@@ -1,11 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useIsTeacher from "../hooks/useIsTeacher";
 
 
 const DashBoard = () => {
     const [isAdmin] = useAdmin();
-    console.log(isAdmin);
 
+    const [isTeacher] = useIsTeacher();
 
     return (
         <div className="flex">
@@ -23,7 +24,25 @@ const DashBoard = () => {
                                 <NavLink to={'/dashboard/users'}>Users</NavLink>
                             </li>
                         </>
+
                     }
+                    {
+                        isTeacher && <>
+                            <li>
+                                <NavLink to={'/dashboard/addclass'}>Add Class</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={'/dashboard/myclass'}>My Class</NavLink>
+                            </li>
+                        </>
+                    }
+                    <div className="divider"></div>
+                    <li>
+                        <NavLink to={'/'}>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/dashboard/myprofile'}>My Profile</NavLink>
+                    </li>
 
                 </ul>
 

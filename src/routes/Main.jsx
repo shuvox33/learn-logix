@@ -12,6 +12,9 @@ import DashBoard from "../layouts/DashBoard";
 import TeacherRequest from "../components/AdminDashboard/TeacherRequest";
 import AllUsers from "../components/AdminDashboard/AllUsers";
 import AllClassesAdmin from "../components/AdminDashboard/AllClassesAdmin";
+import AddClass from "../components/TeacherDashboard/AddClass";
+import MyClass from "../components/TeacherDashboard/MyClass";
+import MyProfile from "../components/shared/MyProfile";
 
 const routes = createBrowserRouter([
     {
@@ -55,6 +58,18 @@ const routes = createBrowserRouter([
             {
                 path : 'users',
                 element : <AllUsers></AllUsers>
+            },
+            {
+                path : 'addclass',
+                element : <AddClass></AddClass>
+            },
+            {
+                path : 'myclass',
+                element : <MyClass></MyClass>
+            },
+            {
+                path : 'myprofile',
+                element : <MyProfile></MyProfile>
             },
         ]
     }

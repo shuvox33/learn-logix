@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useUsers from "../../hooks/useUsers";
 
@@ -14,7 +15,7 @@ const AllUsers = () => {
         axiosPublic.patch(`/users/${email}`, updateRole)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                    console.log("role updated");
+                    toast('role updated')
                     refetch()
                 }
             })
@@ -68,6 +69,7 @@ const AllUsers = () => {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useTeacher from "../../hooks/useTeacher";
 
@@ -22,7 +23,7 @@ const TeacherRequest = () => {
                         axiosPublic.patch(`/users/${data.email}`, updateRole)
                             .then(res => {
                                 if (res.data.modifiedCount > 0) {
-                                    console.log("role updated");
+                                    toast('Status Changed')
 
                                 }
                             })
@@ -100,6 +101,7 @@ const TeacherRequest = () => {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
