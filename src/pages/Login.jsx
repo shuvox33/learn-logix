@@ -1,21 +1,33 @@
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Login = () => {
 
     const { logInUser, logInWithGoogle } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const handleGoogle = () => {
         logInWithGoogle()
-            .then(() => {
+            .then(result => {
                 toast('SignIn with Google Successful')
-                navigate('/');
+
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    role: 'user'
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
             })
             .catch(error => console.error(error));
     }

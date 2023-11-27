@@ -4,12 +4,14 @@ import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Register = () => {
 
+    const axiosPublic = useAxiosPublic();
 
     // const {createUser} = useContext(AuthContext);
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
 
@@ -44,17 +46,28 @@ const Register = () => {
 
         createUser(email, password)
             .then((result) => {
-                toast('Sing Up Successful')
-
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photo
                 })
-                    .then(() => console.log('profile updated'))
-                    .catch()
+                    .then(() => {
+                        console.log('profile updated')
+                        const userInfo = {
+                            name: name,
+                            email: email,
+                            role: 'user'
+                        }
 
-                e.target.reset();
-                navigate('/');
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    toast('Sing Up Successful')
+                                    e.target.reset();
+                                    navigate('/');
+                                }
+                            })
+                    })
+                    .catch()
             })
             .catch(error => console.error(error));
     }
