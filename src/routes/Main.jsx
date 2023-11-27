@@ -8,6 +8,10 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import AllClasses from "../pages/AllClasses";
 import TeachOnLearnLogix from "../pages/TeachOnLearnLogix";
+import DashBoard from "../layouts/DashBoard";
+import TeacherRequest from "../components/AdminDashboard/TeacherRequest";
+import AllUsers from "../components/AdminDashboard/AllUsers";
+import AllClassesAdmin from "../components/AdminDashboard/AllClassesAdmin";
 
 const routes = createBrowserRouter([
     {
@@ -36,6 +40,24 @@ const routes = createBrowserRouter([
             }
         ]
     },
+    {
+        path : 'dashboard',
+        element : <DashBoard></DashBoard>,
+        children :[
+            {
+                path : 'teacherRequest',
+                element : <TeacherRequest></TeacherRequest>
+            },
+            {
+                path : 'allClasses',
+                element : <AllClassesAdmin></AllClassesAdmin>
+            },
+            {
+                path : 'users',
+                element : <AllUsers></AllUsers>
+            },
+        ]
+    }
 ]);
 
 export default routes;

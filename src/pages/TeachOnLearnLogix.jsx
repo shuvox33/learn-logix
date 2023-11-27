@@ -38,7 +38,7 @@ const TeachOnLearnLogix = () => {
     return (
         <div>
             {
-                curInfo.status === 'accepted' ? <>
+                curInfo.status === 'approved' ? <>
                 <h3>You alrady a Teacher</h3>
                 </> :
                     <>

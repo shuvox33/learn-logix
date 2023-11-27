@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { SiSololearn } from "react-icons/si";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
     console.log(user);
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 toast("Logout Successful!")
+                console.log('logout');
             })
             .catch(error => {
                 console.error(error);
@@ -56,7 +56,9 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-lg">
                                 <li className="text-center mb-5 font-semibold">{user.displayName}</li>
-                                <li><button onClick={handleLogOut} className=" ml-4 px-3 py-1 btn btn-ghost btn-sm">Dashboard</button></li>
+
+                                <li><NavLink to={'dashboard'}><button className=" ml-4 px-3 py-1 btn btn-ghost btn-sm">Dashboard</button></NavLink></li>
+
                                 <li><button onClick={handleLogOut} className=" ml-4 px-3 py-1 btn btn-primary btn-sm">Log Out</button></li>
                             </ul>
                         </div>
