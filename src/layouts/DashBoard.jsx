@@ -36,6 +36,16 @@ const DashBoard = () => {
                             </li>
                         </>
                     }
+
+                    {
+                        (!isTeacher && !isAdmin) && <>
+                            <li>
+                                <NavLink to={'/dashboard/myenrolls'}>My Enroll Class</NavLink>
+                            </li>
+                        </>
+                    }
+
+
                     <div className="divider"></div>
                     <li>
                         <NavLink to={'/'}>Home</NavLink>

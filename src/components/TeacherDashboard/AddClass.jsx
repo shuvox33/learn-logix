@@ -14,7 +14,7 @@ const AddClass = () => {
 
 
     const onSubmit = (data) => {
-        const requestData = { ...data, status: "pending"}
+        const requestData = { ...data, status: "pending", totalenroll: 0}
         axiosPublic.post('/classes', requestData)
             .then(res => {
                 if (res.data.insertedId) {

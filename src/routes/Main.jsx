@@ -16,6 +16,7 @@ import AddClass from "../components/TeacherDashboard/AddClass";
 import MyClass from "../components/TeacherDashboard/MyClass";
 import MyProfile from "../components/shared/MyProfile";
 import UpdateClass from "../components/TeacherDashboard/UpdateClass";
+import MyEnrollClass from "../components/userDashboard/MyEnrollClass";
 
 const routes = createBrowserRouter([
     {
@@ -28,7 +29,8 @@ const routes = createBrowserRouter([
             },
             {
                 path : 'allclasses',
-                element : <PrivateRoute><AllClasses></AllClasses></PrivateRoute>
+                element : <PrivateRoute><AllClasses></AllClasses></PrivateRoute>,
+                loader:() => fetch(`http://localhost:5000/classes/approved`)
             },
             {
                 path : 'teachonlearnlogix',
@@ -54,7 +56,7 @@ const routes = createBrowserRouter([
             },
             {
                 path : 'allClasses',
-                element : <AllClassesAdmin></AllClassesAdmin>
+                element : <AllClassesAdmin></AllClassesAdmin>,
             },
             {
                 path : 'users',
@@ -76,6 +78,10 @@ const routes = createBrowserRouter([
             {
                 path : 'myprofile',
                 element : <MyProfile></MyProfile>
+            },
+            {
+                path : 'myenrolls',
+                element : <MyEnrollClass></MyEnrollClass>
             },
         ]
     }
