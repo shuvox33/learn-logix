@@ -15,6 +15,7 @@ import AllClassesAdmin from "../components/AdminDashboard/AllClassesAdmin";
 import AddClass from "../components/TeacherDashboard/AddClass";
 import MyClass from "../components/TeacherDashboard/MyClass";
 import MyProfile from "../components/shared/MyProfile";
+import UpdateClass from "../components/TeacherDashboard/UpdateClass";
 
 const routes = createBrowserRouter([
     {
@@ -66,6 +67,11 @@ const routes = createBrowserRouter([
             {
                 path : 'myclass',
                 element : <MyClass></MyClass>
+            },
+            {
+                path : 'myclass/update/:id',
+                element : <UpdateClass></UpdateClass>,
+                loader: ({params}) => fetch(`http://localhost:5000/classes/single/${params.id}`)
             },
             {
                 path : 'myprofile',

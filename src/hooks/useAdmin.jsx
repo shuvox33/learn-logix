@@ -11,7 +11,7 @@ const useAdmin = () => {
     const {data : isAdmin} = useQuery({
         queryKey : [user?.email, 'isAdmin'],
         queryFn :async () => {
-            console.log('checking is admin : ', user)
+            // console.log('checking is admin : ', user)
             const res = await axiosPublic.get(`/users/admin/${user.email}`);
             return res.data?.admin;
         }
