@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { NavLink } from "react-router-dom";
 
 const MyEnrollClass = () => {
 
@@ -25,7 +26,8 @@ const MyEnrollClass = () => {
                         <h2 className="card-title">{enroll.title}</h2>
                         <p>{enroll.name}</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Continue</button>
+                            <NavLink to={`/dashboard/myenrollclasdetails/${enroll.classId}`}>
+                                <button className="btn btn-primary">Continue</button></NavLink>
                         </div>
                     </div>
                 </div>)

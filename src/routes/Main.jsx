@@ -17,6 +17,7 @@ import MyClass from "../components/TeacherDashboard/MyClass";
 import MyProfile from "../components/shared/MyProfile";
 import UpdateClass from "../components/TeacherDashboard/UpdateClass";
 import MyEnrollClass from "../components/userDashboard/MyEnrollClass";
+import EnrollClassDetails from "../components/userDashboard/EnrollClassDetails";
 
 const routes = createBrowserRouter([
     {
@@ -82,6 +83,10 @@ const routes = createBrowserRouter([
             {
                 path : 'myenrolls',
                 element : <MyEnrollClass></MyEnrollClass>
+            },
+            {
+                path : 'myenrollclasdetails/:classId',
+                element : <EnrollClassDetails></EnrollClassDetails>
             },
         ]
     }
