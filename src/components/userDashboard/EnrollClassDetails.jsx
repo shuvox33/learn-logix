@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import Rating from 'react-rating';
@@ -28,6 +28,14 @@ const EnrollClassDetails = () => {
     const axiosPublic = useAxiosPublic()
     const {user} = useAuth()
 
+    const [title, setTitle] = useState([]);
+    useEffect(()=>{
+        axiosPublic.get(`/classes/single/${classId.classId}`)
+        .then(res=>{
+            setTitle(res.data.title)
+        })
+    },[axiosPublic, classId])
+
     // let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
     function openModal() {
@@ -47,12 +55,12 @@ const EnrollClassDetails = () => {
     
 
     const onSubmit = (data) => {
-        const reviewData = { ...data, rating: rating, classId: classId.classId, email: user.email, name: user.displayName}
+        const reviewData = { ...data, rating: rating, classId: classId.classId, email: user.email, name: user.displayName, photo: user.photoURL, title: title}
         console.log(reviewData);
         axiosPublic.post('/review', reviewData)
             .then(res => {
                 if (res.data.insertedId) {
-                    toast('Feedback Added Successful')
+                    toast('Feedback Added Successfully')
                     closeModal();
                 }
             })

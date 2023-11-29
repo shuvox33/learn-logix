@@ -38,7 +38,7 @@ const Feature1 = () => {
                         <figure className="px-5 pt-5">
                             <img src="https://i.ibb.co/fvGXSRW/smart-watch.png" alt="Shoes" className=" object-contain rounded-xl" />
                         </figure>
-                        <h2 className="text-2xl text-center">Micro-service</h2>
+                        <h2 className="text-2xl text-center">Python</h2>
 
                     </div>
                 </div>

@@ -40,22 +40,24 @@ const Feedback = () => {
                         feedBacks.map(review => <SwiperSlide
                             key={review._id}
                         >
-                            <div className="flex flex-col items-center mx-24 my-16">
+                            <div className="flex flex-col items-center mx-24 my-10">
 
-                                <h3 className="text-2xl text-green-500 mb-5">Title : </h3>
+                                <div className="mt-5 flex flex-col items-center">
+                                    <figure className="">
+                                        <img className="rounded-full" src={review.photo} alt="" />
+                                    </figure>
+                                    <h3 className="text-2xl text-orange-400">{review.name}</h3>
+                                </div>
+
+                                <h3 className="text-2xl text-green-500 my-5">Title : {review.title}</h3>
 
                                 <Rating
                                     style={{ maxWidth: 180 }}
                                     value={review.rating}
                                     readOnly
                                 />
-                                <div className="mt-5">
-                                    <h3 className="text-2xl text-orange-400">{review.name}</h3>
-                                    <figure>
-                                        <img src="" alt="" />
-                                    </figure>
-                                </div>
-                                <p className="py-8">{review.description}</p>
+
+                                <p className="py-5">{review.description}</p>
                             </div>
                         </SwiperSlide>)
                     }

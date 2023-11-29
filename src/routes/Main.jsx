@@ -19,6 +19,7 @@ import UpdateClass from "../components/TeacherDashboard/UpdateClass";
 import MyEnrollClass from "../components/userDashboard/MyEnrollClass";
 import EnrollClassDetails from "../components/userDashboard/EnrollClassDetails";
 import AllReview from "../components/AdminDashboard/AllReview";
+import ClassDetails from "../components/AllClasses/ClassDetails";
 
 const routes = createBrowserRouter([
     {
@@ -31,8 +32,12 @@ const routes = createBrowserRouter([
             },
             {
                 path : 'allclasses',
-                element : <PrivateRoute><AllClasses></AllClasses></PrivateRoute>,
+                element : <AllClasses></AllClasses>,
                 loader:() => fetch(`http://localhost:5000/classes/approved`)
+            },
+            {
+                path : 'classDetails/:id',
+                element : <PrivateRoute><ClassDetails></ClassDetails></PrivateRoute>,
             },
             {
                 path : 'teachonlearnlogix',
@@ -52,6 +57,10 @@ const routes = createBrowserRouter([
         path : 'dashboard',
         element : <DashBoard></DashBoard>,
         children :[
+            {
+                index: true,
+                element: <h3 className="text-3xl text-center text-green-300">Welcome To DashBoard</h3>
+            },
             {
                 path : 'teacherRequest',
                 element : <TeacherRequest></TeacherRequest>
