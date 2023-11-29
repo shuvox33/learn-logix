@@ -16,12 +16,14 @@ const MyProfile = () => {
                 setUserInfo(res.data);
             })
 
-    }, [user?.email,axiosPublic])
+    }, [user?.email, axiosPublic])
 
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto mt-10">
-            <figure className="mt-5"><img className="rounded-full" src={userinfo?.photo} alt="Shoes" /></figure>
+            <figure className="mt-5">
+                <img className="rounded-full max-w-[100px]" src={userinfo?.photo} alt="Shoes" />
+            </figure>
             <div className="card-body">
                 <h2 className="card-title">{userinfo?.name}</h2>
                 <p>{userinfo?.email}</p>

@@ -64,7 +64,9 @@ const MyClass = () => {
                             <div className="card-actions justify-end">
                                 <NavLink to={`/dashboard/myclass/update/${clas._id}`}><button className="btn">Update</button></NavLink>
                                 <button onClick={() => handleDelete(clas._id)} className="btn">Delete</button>
-                                <button className="btn">See Details</button>
+                                <NavLink to={`/dashboard/classprogress/${clas._id}`}>
+                                    <button className="btn" disabled={clas.status === 'rejected' || clas.status === 'pending'}>See Details</button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>)

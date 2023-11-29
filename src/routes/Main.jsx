@@ -20,6 +20,7 @@ import MyEnrollClass from "../components/userDashboard/MyEnrollClass";
 import EnrollClassDetails from "../components/userDashboard/EnrollClassDetails";
 import AllReview from "../components/AdminDashboard/AllReview";
 import ClassDetails from "../components/AllClasses/ClassDetails";
+import ClassProgress from "../components/TeacherDashboard/ClassProgress";
 
 const routes = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ const routes = createBrowserRouter([
             {
                 path : 'myclass',
                 element : <MyClass></MyClass>
+            },
+            {
+                path : 'classprogress/:id',
+                element : <ClassProgress></ClassProgress>
             },
             {
                 path : 'myclass/update/:id',
