@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
             {
                 path : 'allclasses',
                 element : <AllClasses></AllClasses>,
-                loader:() => fetch(`http://localhost:5000/classes/approved`)
+                loader:() => fetch(`https://a12-learn-logix-server.vercel.app/classes/approved`)
             },
             {
                 path : 'classDetails/:id',
@@ -89,7 +89,7 @@ const routes = createBrowserRouter([
             {
                 path : 'myclass/update/:id',
                 element : <UpdateClass></UpdateClass>,
-                loader: ({params}) => fetch(`http://localhost:5000/classes/single/${params.id}`)
+                loader: ({params}) => fetch(`https://a12-learn-logix-server.vercel.app/classes/single/${params.id}`)
             },
             {
                 path : 'myprofile',
