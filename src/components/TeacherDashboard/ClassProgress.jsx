@@ -65,7 +65,7 @@ const ClassProgress = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        const assignmentData = { ...data, expireDate: expireDate, classID: id }
+        const assignmentData = { ...data, expireDate: expireDate, classId: id }
 
         axiosPublic.post('/createAss', assignmentData)
             .then(res => {
