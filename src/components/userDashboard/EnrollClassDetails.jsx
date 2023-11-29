@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import Rating from 'react-rating';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAuth from '../../hooks/useAuth';
 
@@ -24,9 +24,9 @@ Modal.setAppElement('#root');
 const EnrollClassDetails = () => {
 
     const classId = useParams()
+    // console.log(classId.classId);
     const axiosPublic = useAxiosPublic()
     const {user} = useAuth()
-    console.log(user);
 
     // let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -42,18 +42,18 @@ const EnrollClassDetails = () => {
     }
 
     const [rating, setRating] = useState(0);
-    console.log(rating);
 
     const { register, handleSubmit} = useForm();
     
 
     const onSubmit = (data) => {
-        const reviewData = { ...data, status: "pending", email: user.email }
-        console.log(data);
-        axiosPublic.post('/teachers', reviewData)
+        const reviewData = { ...data, rating: rating, classId: classId.classId, email: user.email, name: user.displayName}
+        console.log(reviewData);
+        axiosPublic.post('/review', reviewData)
             .then(res => {
                 if (res.data.insertedId) {
-                    toast('Request Successful')
+                    toast('Feedback Added Successful')
+                    closeModal();
                 }
             })
     }
@@ -90,10 +90,7 @@ const EnrollClassDetails = () => {
                     </div>
                 </form>
             </Modal>
-
-
-
-
+            <ToastContainer/>
         </div>
     );
 };
