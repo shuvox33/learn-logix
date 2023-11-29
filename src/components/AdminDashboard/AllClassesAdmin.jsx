@@ -1,6 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useClasses from "../../hooks/useClasses";
+import { NavLink } from "react-router-dom";
 
 const AllClassesAdmin = () => {
 
@@ -81,9 +82,13 @@ const AllClassesAdmin = () => {
                                 >
                                     Reject</button></td>
 
-                                <td><button className="btn btn-sm"
-                                    disabled={clas.status === 'rejected' || clas.status === 'pending'}
-                                >See Progress</button></td>
+                                <td>
+                                    <NavLink to={`/dashboard/allreview/${clas._id}`}>
+                                        <button className="btn btn-sm"
+                                            disabled={clas.status === 'rejected' || clas.status === 'pending'}
+                                        >See Progress</button>
+                                    </NavLink>
+                                </td>
 
                             </tr>)
                         }

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
 
@@ -9,6 +10,7 @@ const AddClass = () => {
     const axiosPublic = useAxiosPublic();
     const { user } = useAuth();
 
+    // const navigate = useNavigate()
 
 
 
@@ -18,6 +20,7 @@ const AddClass = () => {
         axiosPublic.post('/classes', requestData)
             .then(res => {
                 if (res.data.insertedId) {
+                    // navigate('/dashboard/myclass')
                     toast('Class Request send Successfully')
                 }
             })

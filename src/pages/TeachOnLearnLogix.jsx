@@ -39,7 +39,7 @@ const TeachOnLearnLogix = () => {
         <div>
             {
                 curInfo.status === 'approved' ? <>
-                <h3>You alrady a Teacher</h3>
+                <h3 className="text-xl text-center mt-10 text-green-500">You alrady a Teacher</h3>
                 </> :
                     <>
                         <div className="mt-7">
