@@ -47,9 +47,11 @@ const ClassDetails = () => {
     }
 
     return (
-        <div className="card card-side bg-base-100 shadow-xl mt-16">
-            <figure><img src={classInfo.image} alt="Movie" /></figure>
-            <div className="space-y-5 mt-10">
+        <div className="card card-side bg-base-100 shadow-xl mt-16 flex-col sm:flex-row">
+            <div>
+                <figure><img className="sm: w-96 lg:w-full"  src={classInfo.image} alt="Movie" /></figure>
+            </div>
+            <div className="space-y-5 mt-10 md:">
                 <h2 className="card-title">Title: {classInfo.title}</h2>
                 <p>Instructor : {classInfo.name}</p>
                 <p>Price : {classInfo.price}</p>

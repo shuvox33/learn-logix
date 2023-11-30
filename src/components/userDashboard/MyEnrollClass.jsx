@@ -18,7 +18,7 @@ const MyEnrollClass = () => {
     }, [allEnrolls, axiosPublic, user?.email])
 
     return (
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-3">
             {
                 allEnrolls.map(enroll => <div key={enroll._id} className="card w-96 bg-base-100 shadow-xl image-full">
                     <figure><img src={enroll.image} alt="Shoes" /></figure>

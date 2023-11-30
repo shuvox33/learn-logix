@@ -49,7 +49,7 @@ const MyClass = () => {
 
     return (
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-3">
             {
                 classes.map(clas =>
                     <div key={clas._id} className="card w-96 bg-primary text-primary-content">

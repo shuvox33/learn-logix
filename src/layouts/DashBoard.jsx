@@ -10,7 +10,7 @@ const DashBoard = () => {
 
     return (
         <div className="flex">
-            <div className="w-64 min-h-screen bg-green-300">
+            <div className="sm:w-60 md: w-60 lg:w-64 min-h-screen bg-green-300">
                 <ul className="menu p-4 text-base font-medium">
                     {
                         isAdmin && <>

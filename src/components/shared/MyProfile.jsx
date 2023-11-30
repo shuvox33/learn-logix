@@ -20,7 +20,7 @@ const MyProfile = () => {
 
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl mx-auto mt-10">
+        <div className="card md:w-96 bg-base-100 shadow-xl mx-auto mt-10">
             <figure className="mt-5">
                 <img className="rounded-full max-w-[100px]" src={userinfo?.photo} alt="Shoes" />
             </figure>

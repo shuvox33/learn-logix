@@ -87,7 +87,7 @@ const ClassProgress = () => {
     return (
         <div >
 
-            <div className="flex gap-8">
+            <div className="lg:flex gap-8">
                 <div className="text-center border-b-2 border-blue-300 p-8 rounder-lg">
                     <h3 className="text-2xl font-medium text-blue-600">Total Enrollment </h3>
                     <h3 className="text-4xl font-medium">{totalEnrolls}</h3>

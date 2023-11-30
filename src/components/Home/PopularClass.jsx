@@ -19,7 +19,7 @@ const PopularClass = () => {
     return (
         <div className="mt-14">
             <h3 className="text-3xl text-center">Popular Class</h3>
-            <div className="grid grid-cols-3">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
                     pClasses.map((clas => <div key={clas._id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
