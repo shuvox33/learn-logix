@@ -1,4 +1,5 @@
 import Banner from "../components/Home/Banner";
+import Contact from "../components/Home/Contact";
 import Feature1 from "../components/Home/Feature1";
 import Feedback from "../components/Home/Feedback";
 import JoinTeacher from "../components/Home/JoinTeacher";
@@ -16,6 +17,7 @@ const Home = () => {
             <Statistics></Statistics>
             <JoinTeacher></JoinTeacher>
             <Feature1></Feature1>
+            <Contact></Contact>
         </div>
     );
 };
