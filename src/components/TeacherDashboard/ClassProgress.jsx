@@ -30,6 +30,7 @@ const ClassProgress = () => {
 
     const [totalEnrolls, setTotalEnrolls] = useState(null);
     const [totalAss, setTotalAss] = useState(null);
+    const [totalAssPerDay, setTotalAssPerDay] = useState(null);
 
     useEffect(()=>{
         axiosPublic.get(`/classes/single/${id}`)
@@ -42,6 +43,12 @@ const ClassProgress = () => {
         axiosPublic.get(`/totalass/${id}`)
         .then(res=>{
             setTotalAss(res.data.totalAss)
+        })
+    },[axiosPublic, id])
+    useEffect(()=>{
+        axiosPublic.get('assperday')
+        .then(res=>{
+            setTotalAssPerDay(res.data.count)
         })
     },[axiosPublic, id])
 
@@ -91,7 +98,7 @@ const ClassProgress = () => {
                 </div>
                 <div className="text-center border-b-2 border-blue-300 p-8 rounder-lg">
                     <h3 className="text-2xl font-medium text-blue-600">Per-Day Assignment Submitted </h3>
-                    <h3 className="text-4xl font-medium"></h3>
+                    <h3 className="text-4xl font-medium">{totalAssPerDay}</h3>
                 </div>
             </div>
 

@@ -74,8 +74,17 @@ const EnrollClassDetails = () => {
             })
     }
 
-    const handleAss = () =>{
-        toast('Assignment Submitted !')
+    const handleAss = (classId) => {
+        // let currentDate = new Date();
+        const submitAss = { classId, studentEmail: user.email}
+
+        console.log(submitAss);
+        axiosPublic.post('/submitAss', submitAss)
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast('Assignment Submitted')
+                }
+            })
     }
 
 
@@ -102,7 +111,7 @@ const EnrollClassDetails = () => {
                                 <td>{ass.description}</td>
                                 <td>{ass.expireDate}</td>
 
-                                <td><button onClick={handleAss} className='btn btn-ghost btn-sm'>Submit</button></td>
+                                <td><button onClick={()=>handleAss(ass.classId)} className='btn btn-ghost btn-sm'>Submit</button></td>
 
                             </tr>)
                         }
